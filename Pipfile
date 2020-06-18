@@ -9,6 +9,9 @@ black = "==19.10b0"
 flake8 = "*"
 python-dotenv = "*"
 tqdm = "*"
+jupyter-contrib-nbextensions = "*"
+jupyter = "*"
+dvc = "*"
 
 [packages]
 numpy = "*"
@@ -22,9 +25,8 @@ sklearn = "*"
 # graphing packages
 matplotlib = "*"
 seaborn = "*"
-jupyter-contrib-nbextensions = "*"
-jupyter = "*"
-dvc = "*"
+praw = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7.6"
