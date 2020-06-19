@@ -1,8 +1,8 @@
-md5: 7177c1f1fcf02abce31e509078787543
+md5: 8a120f82a649d324bb71e3272dd1e1ee
 cmd: python src/scrape.py roastme 5
 wdir: ..
 deps:
-- md5: e47375f3b91d6d7cfa88829bce9086f3
+- md5: 6a4ec495afe55e2483ec249239a4c3e9
   path: src/scrape.py
 outs:
 - md5: 1f677e6b43c9fcf6c4804bd241a79606.dir
@@ -10,7 +10,7 @@ outs:
   cache: true
   metric: false
   persist: true
-- md5: 4451668a1acfb2f6d4de81c2982aa68d
+- md5: bb1a02b430e266156fbd9ff01370cbce
   path: data/top_posts_roastme.csv
   cache: true
   metric: false

@@ -5,6 +5,24 @@
 1. Extract images and text from the RoastMe and ToastMe subreddits.
 2. Develop a machine learning model to perform automatic roasts or toasts.
 
+### File Structure
+
+```
+├── Pipfile // Dependencies for python
+├── Pipfile.lock
+├── README.md // Markdown documentation
+├── dvc // Store dvc files for data version controled pipeline
+├── data  // Data and images scraped
+|   ├── images // Storage of submission image
+|   |      ├── roastme // roastme subreddit post images
+|   |      ├── toastme // toastme subreddit post images
+|   ├── queries // SQL queries in *.sql files to retrieve data from database
+|   └── *.py // source code for use in this project
+├── src 
+|   └── *.py // source code for use in this project
+```
+
+
 ### Collect Data
 
 Starting with two data collection steps of 5000 each from RoastMe and ToastMe subreddits. 

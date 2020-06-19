@@ -1,8 +1,8 @@
-md5: ec95ef82ff5df19748c5319042f3ef59
+md5: 4e2746730d9481ab5eef73d9992d605c
 cmd: python src/scrape.py toastme 5
 wdir: ..
 deps:
-- md5: e47375f3b91d6d7cfa88829bce9086f3
+- md5: 6a4ec495afe55e2483ec249239a4c3e9
   path: src/scrape.py
 outs:
 - md5: d6d12beb72eb01cc7e1a42c652921e01.dir
@@ -10,7 +10,7 @@ outs:
   cache: true
   metric: false
   persist: true
-- md5: e48244b8d2d20bc624ac2fd9896a1900
+- md5: 4005598c7dbd025a419fca2ae1d0c843
   path: data/top_posts_toastme.csv
   cache: true
   metric: false

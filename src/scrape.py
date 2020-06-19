@@ -11,14 +11,26 @@ from sys import argv
 
 class Scraper:
     def __init__(self, subreddit=None, limit=5):
+        """
+        Scraping utility for subreddit data collection.
+        Collects top posts and comments from given subreddit till limit is reached.
+
+        :param subreddit: subreddit to collect data. Expect 'roastme' or toastme' but others can be used.
+        :param limit: number of top posts to collect.
+        """
+        self.limit = limit
         self.reddit = praw.Reddit(client_id=REDDIT_CLIENT_ID,
                                   client_secret=REDDIT_CLIENT_SECRET,
                                   user_agent=REDDIT_USER_AGENT)
         self.subreddit = subreddit
-        self.extract_top_posts(limit)
+        self.extract_top_posts()
 
-    def extract_top_posts(self, limit):
-        top_posts = self.reddit.subreddit(self.subreddit).top(limit=limit)
+    def extract_top_posts(self):
+        """
+        Extract the top posts for subreddit images and comments.
+        :return: Nothing.
+        """
+        top_posts = self.reddit.subreddit(self.subreddit).top(limit=self.limit)
         all_comments = list()
         for post in top_posts:
             try:
@@ -33,7 +45,12 @@ class Scraper:
         pd.DataFrame(all_comments).to_csv(f'data/top_posts_{self.subreddit}.csv')
 
 
-def extract_comments(post):
+def extract_comments(post: praw.models.Submission) -> list:
+    """
+    Extract comments from a post into a dictionary for storage.
+    :param post: a subreddit post to have information extracted
+    :return: a list of dictionaries with `post_id`, `comment_score` and `comment_body` as keys.
+    """
     comments = list()
     for top_level_comment in post.comments:
         if isinstance(top_level_comment, MoreComments):
@@ -45,7 +62,12 @@ def extract_comments(post):
     return comments
 
 
-def extract_image(post):
+def extract_image(post: praw.models.Submission) -> Image:
+    """
+    Extract the image from a post for storage
+    :param post: a subreddit post to have information extracted
+    :return: an Image object.
+    """
     response = requests.get(post.url)
     img = Image.open(BytesIO(response.content))
     img = img.convert("RGB")
@@ -53,6 +75,4 @@ def extract_image(post):
 
 
 if __name__ == '__main__':
-    subreddit = argv[1]
-    limit = int(argv[2])
-    Scraper(subreddit, limit)
+    Scraper(argv[1], int(argv[2]))
