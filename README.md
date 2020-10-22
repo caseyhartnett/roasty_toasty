@@ -1,5 +1,7 @@
 # Roasty Toasty
 
+This project was not possible in the end with data available on roastme and toastme at the moment. Could not find enough similar roasts or toasts to perform Deep Learning on the images. Will consider other possible projects associated but currently dead. 
+
 ### Goals:
 
 1. Extract images and text from the RoastMe and ToastMe subreddits.
